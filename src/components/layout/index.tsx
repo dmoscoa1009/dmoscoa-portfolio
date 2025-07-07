@@ -9,7 +9,7 @@ const Layout = () => {
     <div className="relative h-svh w-full overflow-hidden">
       <BinaryBackground />
       <div className="relative z-10 h-full pointer-events-none">
-        <div className="pointer-events-auto">
+        <div className="pointer-events-auto h-full overflow-y-auto">
           <Header />
           <PageTransition>
             <Outlet />

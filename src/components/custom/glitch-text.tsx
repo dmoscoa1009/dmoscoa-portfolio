@@ -26,7 +26,6 @@ const GlitchText: React.FC<GlitchTextProps> = ({
   );
 
   useEffect(() => {
-    let intervalId: NodeJS.Timeout;
     let frame = 0;
     const fps = 30;
     const frameDuration = 1000 / fps;
@@ -38,10 +37,10 @@ const GlitchText: React.FC<GlitchTextProps> = ({
         Math.floor(Math.random() * totalFrames * 0.6 + totalFrames * 0.4)
       );
 
-    intervalId = setInterval(() => {
+    const intervalId = setInterval(() => {
       frame++;
 
-      setDisplayed((prev) =>
+      setDisplayed(() =>
         text.split("").map((char, i) => {
           if (char === " ") {
             return " "; // ✨ Always show spaces

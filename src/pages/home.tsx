@@ -2,28 +2,43 @@ import { Button } from "@/components/ui/button";
 import ContactDrawer from "@/components/custom/contact-drawer";
 import GlitchText from "@/components/custom/glitch-text";
 import { NavLink } from "react-router";
+import GlitchyBlob from "@/components/custom/glitchy-blob";
 
 export default function HomePage() {
   return (
     <div className="relative h-svh w-full p-8 pt-32  text-foreground">
       {/* Description */}
       <div className="flex flex-col gap-y-4 mx-24">
-        <h1 className="text-6xl uppercase font-bold tracking-wider">
-          <GlitchText text="DIEGO MOSCOA" />
-        </h1>
-        <div className="max-w-md">
-          <p className="text-xs uppercase tracking-wider mb-4 text-muted-foreground">
+        <div className="flex items-center gap-4">
+          <GlitchText
+            text="DMOSCOA"
+            className="text-6xl bebas-neue-regular font-bold tracking-wider"
+          />
+          <GlitchyBlob
+            width={6}
+            height={2}
+            density={0.8}
+            colorClass="text-accent"
+          />
+        </div>
+        <div className="max-w-md mt-2">
+          <p className="text-xs font-mono tracking-wider mb-4 text-muted-foreground">
             <GlitchText
-              className="break-words "
-              text="DIEGO IS A CODE-SLINGER, TEAM CAPTAIN, AND DIGITAL BUILDER WHO
-            BLENDS REACT, TYPESCRIPT, AND PURE HUSTLE TO CRAFT SMOOTH, SCALABLE,
-            USER-OBSESSED WEB APPS. FROM CLEAN DESIGN SYSTEMS TO REAL-TIME APIS,
-            HE'S BEEN SHAPING THE INTERNET ONE FAST-LOADING INTERFACE AT A TIME
-            — AND LEADING DEV TEAMS WHILE HE'S AT IT."
+              className="break-words"
+              text="[ID: 0xD13G0] // SYS: CODE-SLINGER ∑ TEAM-LEAD // NODE: DIGITAL BUILDER"
             />
             <br />
+            <GlitchText
+              className="break-words"
+              text="BLENDING REACT, TYPESCRIPT, + PURE HUSTLE TO CRAFT SCALABLE, USER-OBSESSED APPS."
+            />
             <br />
-            <GlitchText text="HE DOESN'T JUST WRITE CODE. HE SHIPS EXPERIENCES." />
+            <GlitchText
+              className="break-words"
+              text="CLEAN DESIGN SYSTEMS // REAL-TIME APIS // FAST-LOADING INTERFACES — LEADING DEV TEAMS."
+            />
+            <br />
+            <GlitchText text="[SYS: SHIPS EXPERIENCES]" />
           </p>
         </div>
       </div>
@@ -31,10 +46,7 @@ export default function HomePage() {
       {/* Centered Project Button */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <NavLink to="/projects">
-          <Button
-            variant="ghost"
-            className="transition-all bg-radial from-background to-transparent duration-300 uppercase tracking-wider text-2xl px-8 py-6"
-          >
+          <Button className="text-base px-8 py-3 rounded-none border-none shadow-none transition-none">
             See projects
           </Button>
         </NavLink>
@@ -42,38 +54,50 @@ export default function HomePage() {
 
       {/* Project Counter */}
       <div className="absolute bottom-8 left-8">
-        <p className="text-sm">P/01</p>
-        <div className="text-4xl font-bold mt-2 uppercase tracking-tighter">
+        {/* Futuristic Glitchy Info Block */}
+        <div className="flex flex-col gap-1 items-start">
+          <GlitchyBlob
+            width={10}
+            height={3}
+            density={0.7}
+            colorClass="text-accent"
+          />
+          <p className="text-xs">[SYS: ONLINE] // NODE: HOME</p>
+          <p className="text-xs">ID: 0xD13G0-0999</p>
+          <p className="text-xs">SECTOR: ∑-ALPHA</p>
+          <p className="text-xs">ACCESS: #ROOT</p>
+        </div>
+        <div className="text-4xl font-bold mt-2 bebas-neue-regular uppercase">
           <GlitchText className="min-h-[5rem]" text="Full Stack Developer" />
         </div>
         <ContactDrawer>
-          <Button variant="outline" className="mt-4 text-xs uppercase ">
-            The journey →
+          <Button variant="outline" className="mt-4 text-xs uppercase">
+            Contact →
           </Button>
         </ContactDrawer>
       </div>
 
       {/* Project Details */}
-      <div className="absolute bottom-8 right-8 text-xs uppercase">
+      <div className="absolute bottom-8 right-8 text-xs uppercase text-foreground">
         <div className="grid grid-cols-3 gap-12">
           <div>
             <p className="mb-2 text-muted-foreground">
-              <GlitchText text="// YEAR" />
+              <GlitchText text="// SYS: YEAR" />
             </p>
             <p>
-              <GlitchText text="2025" />
+              <GlitchText text="0x2025" />
             </p>
           </div>
           <div>
             <p className="mb-2 text-muted-foreground">
-              <GlitchText text="// ROLE" />
+              <GlitchText text="// NODE: ROLE" />
             </p>
             <p>
               <GlitchText text="FULL STACK" />
               <br />
-              <GlitchText text="DEVELOPMENT" />
+              <GlitchText text="DEV-LEAD" />
               <br />
-              <GlitchText text="/ TEAM LEAD" />
+              <GlitchText text="/ ∑-SIGMA" />
             </p>
           </div>
           <div>
@@ -85,7 +109,7 @@ export default function HomePage() {
               <br />
               <GlitchText text="TYPESCRIPT" />
               <br />
-              <GlitchText text="+ More" />
+              <GlitchText text="#AI + ∞" />
             </p>
           </div>
         </div>

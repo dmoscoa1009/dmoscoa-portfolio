@@ -6,7 +6,8 @@ import ProjectsPage from "./pages/projects";
 import ExperiencePage from "./pages/experience";
 import ContactPage from "./pages/contact";
 import Layout from "./components/layout";
-import ManufacturingAppPage from "./pages/projects/manufacturing-app";
+import NotFound from "./pages/not-found";
+import ProjectPage from "./pages/project";
 
 export default function App() {
   const location = useLocation();
@@ -21,10 +22,11 @@ export default function App() {
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route
-            path="/projects/manufacturing-app"
-            element={<ManufacturingAppPage />}
+            path="/projects/:projectSlug/:projectId"
+            element={<ProjectPage />}
           />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

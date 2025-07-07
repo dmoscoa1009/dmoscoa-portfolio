@@ -113,7 +113,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: #cdc9b9;
+  --accent: #b9c1cd;
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -142,7 +142,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    font-family: "Space Mono", sans-serif;
+    font-family: "Monorama", "Bebas Neue", sans-serif;
   }
 }
 
@@ -253,6 +253,12 @@
   font-display: swap;
 }
 
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @tailwind utilities;
 
 @layer base {
@@ -260,7 +266,38 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-mono;
-    font-family: "Monorama", monospace;
+    @apply bg-background text-foreground;
+    font-family: "Monorama", "Bebas Neue", sans-serif;
   }
+}
+
+@keyframes glitch-x {
+  0% {
+    transform: translate(2px, 0);
+  }
+  100% {
+    transform: translate(-2px, 0);
+  }
+}
+@keyframes glitch-y {
+  0% {
+    transform: translate(-2px, 1px);
+  }
+  100% {
+    transform: translate(2px, -1px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
