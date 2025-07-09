@@ -91,9 +91,9 @@ export default function HomePage() {
       </div>
 
       {/* Project Counter & Contact */}
-      <div className="flex flex-col md:block gap-8 w-full pb-8 md:w-auto md:absolute md:bottom-8 md:left-8">
+      <div className="flex flex-col md:block items-end gap-8 w-full pb-8 md:w-auto md:absolute md:bottom-8 md:left-8 pt-8">
         {/* Futuristic Glitchy Info Block */}
-        <div className="flex flex-col gap-1 items-start">
+        <div className="flex flex-col gap-1 md:items-start items-end">
           <GlitchyBlob
             width={10}
             height={3}

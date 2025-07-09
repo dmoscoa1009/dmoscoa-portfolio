@@ -5,56 +5,97 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";
+import { useEffect, useState } from "react";
+import { CheckCircle, XCircle } from "lucide-react";
+import GlitchText from "@/components/custom/glitch-text";
 
-// 1. Create the form schema with Zod
+/* ─────────────────── Zod schema ─────────────────── */
 const contactFormSchema = z.object({
-  name: z
+  name: z.string().min(2).max(50),
+  email: z
     .string()
-    .min(2, { message: "Name must be at least 2 characters long" })
-    .max(50, { message: "Name must be less than 50 characters long" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  subject: z
-    .string()
-    .min(5, { message: "Subject must be at least 5 characters long" })
-    .max(100, { message: "Subject must be less than 100 characters long" }),
-  message: z
-    .string()
-    .min(10, { message: "Message must be at least 10 characters long" })
-    .max(1000, { message: "Message must be less than 1000 characters long" }),
+    .min(3, { message: "Email is required." })
+    .refine((val) => val.includes("@"), { message: "Email must include '@'." })
+    .refine((val) => /@.+\./.test(val), {
+      message: "Email must include a domain (e.g. .com).",
+    }),
+  subject: z.string().min(5).max(100),
+  message: z.string().min(10).max(1000),
 });
-
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function ContactForm() {
-  // 2. Define form with react-hook-form
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", subject: "", message: "" },
   });
 
-  // Handle form submission
-  function onSubmit(data: ContactFormValues) {
-    console.log(data);
-    // Here you would typically send the data to your backend
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState<"success" | "error" | null>(null);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    if (sent !== null) {
+      const timeout = setTimeout(() => {
+        setSent(null);
+      }, 2500);
+      return () => clearTimeout(timeout);
+    }
+  }, [sent]);
+
+  /* ───────────────  handle submit  ─────────────── */
+  async function onSubmit(data: ContactFormValues) {
+    setSending(true);
+    setSent(null);
+    setErrorMsg("");
+    try {
+      // const res = await emailjs.send(
+      //   import.meta.env.VITE_EMAILJS_SERVICE!,
+      //   import.meta.env.VITE_EMAILJS_TEMPLATE!,
+      //   {
+      //     name: data.name,
+      //     email: data.email,
+      //     subject: data.subject,
+      //     message: data.message,
+      //   },
+      //   import.meta.env.VITE_EMAILJS_PUBLIC!
+      // );
+      const res = { status: 500 };
+
+      if (res.status === 200) {
+        form.reset();
+        setSent("success");
+      } else {
+        setSent("error");
+        setErrorMsg("Something went wrong. Try again?");
+      }
+    } catch {
+      setSent("error");
+      setErrorMsg("Network error – please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
-  // 3. Build the form component
+  // Helper for error border
+  const errorClass = (name: keyof ContactFormValues) =>
+    form.formState.errors[name]
+      ? "border-destructive ring-2 ring-destructive/60"
+      : "border-input";
+
+  /* ───────────────  form markup  ─────────────── */
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        {/* name */}
         <FormField
           control={form.control}
           name="name"
@@ -62,13 +103,22 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="Your name" {...field} />
+                <Input
+                  placeholder="Your name"
+                  {...field}
+                  className={` ${errorClass("name")}`}
+                />
               </FormControl>
-              <FormMessage />
+              {form.formState.errors.name && (
+                <div className="text-xs font-mono text-destructive mt-1 flex items-center gap-1">
+                  <XCircle className="w-4 h-4" />
+                  <GlitchText text={form.formState.errors.name.message || ""} />
+                </div>
+              )}
             </FormItem>
           )}
         />
-
+        {/* email */}
         <FormField
           control={form.control}
           name="email"
@@ -77,19 +127,23 @@ export default function ContactForm() {
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input
-                  placeholder="your.email@example.com"
-                  type="email"
+                  placeholder="you@email.com"
+                  type="text"
                   {...field}
+                  className={`${errorClass("email")}`}
                 />
               </FormControl>
-              <FormDescription>
-                We'll never share your email with anyone else.
-              </FormDescription>
-              <FormMessage />
+              <FormDescription>We’ll never share your email.</FormDescription>
+              {form.formState.errors.email && (
+                <div className="text-xs font-mono text-destructive mt-1 flex items-center gap-1">
+                  <XCircle className="w-4 h-4" />
+                  {form.formState.errors.email.message || ""}
+                </div>
+              )}
             </FormItem>
           )}
         />
-
+        {/* subject */}
         <FormField
           control={form.control}
           name="subject"
@@ -97,13 +151,22 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>Subject</FormLabel>
               <FormControl>
-                <Input placeholder="What's this about?" {...field} />
+                <Input
+                  placeholder="What's this about?"
+                  {...field}
+                  className={` ${errorClass("subject")}`}
+                />
               </FormControl>
-              <FormMessage />
+              {form.formState.errors.subject && (
+                <div className="text-xs font-mono text-destructive mt-1 flex items-center gap-1">
+                  <XCircle className="w-4 h-4" />
+                  {form.formState.errors.subject.message || ""}
+                </div>
+              )}
             </FormItem>
           )}
         />
-
+        {/* message */}
         <FormField
           control={form.control}
           name="message"
@@ -112,19 +175,45 @@ export default function ContactForm() {
               <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Tell me about your project..."
-                  className="min-h-[150px] resize-none"
+                  placeholder="Tell me about your project…"
+                  className={`min-h-[150px] resize-none ${errorClass(
+                    "message"
+                  )}`}
                   {...field}
                 />
               </FormControl>
-              <FormMessage />
+              {form.formState.errors.message && (
+                <div className="text-xs font-mono text-destructive mt-1 flex items-center gap-1">
+                  <XCircle className="w-4 h-4" />
+                  {form.formState.errors.message.message || ""}
+                </div>
+              )}
             </FormItem>
           )}
         />
 
-        <Button type="submit" className="w-full">
-          Send Message
-        </Button>
+        {/* Submit button with success/error state */}
+        {sent === "success" ? (
+          <Button
+            type="button"
+            className="w-full bg-green-600 hover:bg-green-600 text-white border-none flex items-center justify-center gap-2"
+          >
+            <CheckCircle className="w-5 h-5" />
+            <span className="">Message Sent</span>
+          </Button>
+        ) : sent === "error" ? (
+          <Button
+            type="button"
+            className="w-full bg-destructive hover:bg-destructive text-white border-none flex items-center justify-center gap-2"
+          >
+            <XCircle className="w-5 h-5" />
+            <span className="">{errorMsg}</span>
+          </Button>
+        ) : (
+          <Button type="submit" className="w-full" disabled={sending}>
+            {sending ? "Sending…" : "Send Message"}
+          </Button>
+        )}
       </form>
     </Form>
   );
