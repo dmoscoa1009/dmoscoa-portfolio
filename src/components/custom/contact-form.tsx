@@ -57,18 +57,17 @@ export default function ContactForm() {
     setSent(null);
     setErrorMsg("");
     try {
-      // const res = await emailjs.send(
-      //   import.meta.env.VITE_EMAILJS_SERVICE!,
-      //   import.meta.env.VITE_EMAILJS_TEMPLATE!,
-      //   {
-      //     name: data.name,
-      //     email: data.email,
-      //     subject: data.subject,
-      //     message: data.message,
-      //   },
-      //   import.meta.env.VITE_EMAILJS_PUBLIC!
-      // );
-      const res = { status: 500 };
+      const res = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE!,
+        import.meta.env.VITE_EMAILJS_TEMPLATE!,
+        {
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC!
+      );
 
       if (res.status === 200) {
         form.reset();
