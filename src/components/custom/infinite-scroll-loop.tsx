@@ -35,7 +35,7 @@ const InfiniteScrollLoop: React.FC<InfiniteScrollLoopProps> = ({
   return (
     <div className="relative h-full w-full" style={outerStyle}>
       {/* Gradient overlay */}
-      <div className="pointer-events-none absolute left-0 top-0 w-full h-full z-10">
+      <div className="pointer-events-none absolute left-0 top-0 w-full h-full z-20">
         {/* Top gradient fade */}
         <div
           className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-background to-transparent"

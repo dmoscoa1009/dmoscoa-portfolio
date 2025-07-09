@@ -8,6 +8,7 @@ import ContactPage from "./pages/contact";
 import Layout from "./components/layout";
 import NotFound from "./pages/not-found";
 import ProjectPage from "./pages/project";
+import CodeShowcasePage from "./pages/code-showcase";
 import "./App.css";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/experience" element={<ExperiencePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/code" element={<CodeShowcasePage />} />
           <Route
             path="/projects/:projectSlug/:projectId"
             element={<ProjectPage />}

@@ -25,38 +25,38 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    id: "01",
-    name: "REAL-TIME APP",
-    year: "2019",
-    link: "/projects/manufacturing-app/01",
-    description:
-      "Android application for manufacturing efficiency tracking. Developed for Logics, enabling workers to register clock-in/out events, breaks, and production package scanning. Implemented real-time efficiency calculations per worker, task, and department, supporting production optimization and performance-based bonuses.",
-    technologies: ["Android", "Java", "SQLite", "REST APIs"],
-    role: "Mobile Developer",
-    features: [
-      "Clock-in/out events",
-      "Break registration",
-      "Production package scanning",
-      "Real-time efficiency calculations",
-      "Performance-based bonuses",
-    ],
-  },
-  {
-    id: "02",
-    name: "JPS LOTTERY",
-    year: "2020",
-    link: "/projects/jps-lottery/02",
-    description:
-      "React-based web platform for Costa Rica's national lottery (JPS). Developed during COVID-19 to enable digital ticket sales during lockdowns. Modernized the public-facing lottery service with secure online ticket browsing and purchasing capabilities.",
-    technologies: ["React", "TypeScript", "Node.js", "Payment Integration"],
-    role: "Front-End Developer",
-    features: [
-      "Online ticket browsing",
-      "Secure digital ticket sales",
-      "COVID-19 lockdown adaptation",
-    ],
-  },
+  // {
+  //   id: "01",
+  //   name: "REAL-TIME APP",
+  //   year: "2019",
+  //   link: "/projects/manufacturing-app/01",
+  //   description:
+  //     "Android application for manufacturing efficiency tracking. Developed for Logics, enabling workers to register clock-in/out events, breaks, and production package scanning. Implemented real-time efficiency calculations per worker, task, and department, supporting production optimization and performance-based bonuses.",
+  //   technologies: ["Android", "Java", "SQLite", "REST APIs"],
+  //   role: "Mobile Developer",
+  //   features: [
+  //     "Clock-in/out events",
+  //     "Break registration",
+  //     "Production package scanning",
+  //     "Real-time efficiency calculations",
+  //     "Performance-based bonuses",
+  //   ],
+  // },
+  // {
+  //   id: "02",
+  //   name: "JPS LOTTERY",
+  //   year: "2020",
+  //   link: "/projects/jps-lottery/02",
+  //   description:
+  //     "React-based web platform for Costa Rica's national lottery (JPS). Developed during COVID-19 to enable digital ticket sales during lockdowns. Modernized the public-facing lottery service with secure online ticket browsing and purchasing capabilities.",
+  //   technologies: ["React", "TypeScript", "Node.js", "Payment Integration"],
+  //   role: "Front-End Developer",
+  //   features: [
+  //     "Online ticket browsing",
+  //     "Secure digital ticket sales",
+  //     "COVID-19 lockdown adaptation",
+  //   ],
+  // },
   {
     id: "03",
     name: "SPECIAL TICKET",
