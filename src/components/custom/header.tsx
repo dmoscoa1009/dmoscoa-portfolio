@@ -26,9 +26,11 @@ export default function Header() {
 
       {/* Navigation */}
       <div className="flex items-center gap-0 md:gap-6">
-        <Button variant="ghost" className=" text-xs ">
-          PROJECTS [↗]
-        </Button>
+        <Link to="/projects">
+          <Button variant="ghost" className=" text-xs ">
+            PROJECTS [↗]
+          </Button>
+        </Link>
 
         <ContactDrawer>
           <Button variant="ghost" className=" text-xs ">
