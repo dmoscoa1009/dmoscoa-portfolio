@@ -35,7 +35,7 @@ const BinaryBackground = () => {
   return (
     <div className="absolute inset-0 h-screen w-screen overflow-hidden">
       {/* Binary text */}
-      <span className="text-accent dark:text-accent/10 text-9xl select-none break-words absolute inset-0 z-0">
+      <span className="text-accent dark:text-accent/10 text-[clamp(1rem,2vw,2.5rem)] select-none break-words absolute inset-0 z-0">
         {binaryString}
       </span>
 

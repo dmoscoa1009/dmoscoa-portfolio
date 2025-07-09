@@ -6,13 +6,13 @@ import GlitchyBlob from "@/components/custom/glitchy-blob";
 
 export default function HomePage() {
   return (
-    <div className="relative h-svh w-full p-8 pt-32  text-foreground">
+    <div className="relative h-svh w-full p-4 md:p-8 pt-20 md:pt-32 text-foreground">
       {/* Description */}
-      <div className="flex flex-col gap-y-4 mx-24">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col gap-y-4 mx-2 md:mx-24">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
           <GlitchText
             text="DMOSCOA"
-            className="text-6xl bebas-neue-regular font-bold tracking-wider"
+            className="text-4xl sm:text-6xl bebas-neue-regular font-bold tracking-wider"
           />
           <GlitchyBlob
             width={6}
@@ -21,7 +21,7 @@ export default function HomePage() {
             colorClass="text-accent"
           />
         </div>
-        <div className="max-w-md mt-2">
+        <div className="max-w-full md:max-w-md mt-2">
           <p className="text-xs font-mono tracking-wider mb-4 text-muted-foreground">
             <GlitchText
               className="break-words"
@@ -44,42 +44,17 @@ export default function HomePage() {
       </div>
 
       {/* Centered Project Button */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 flex justify-center my-8 md:my-0">
         <NavLink to="/projects">
-          <Button className="text-base px-8 py-3 rounded-none border-none shadow-none transition-none">
+          <Button className="text-base px-6 py-3 rounded-none border-none shadow-none transition-none w-48 sm:w-auto">
             See projects
           </Button>
         </NavLink>
       </div>
 
-      {/* Project Counter */}
-      <div className="absolute bottom-8 left-8">
-        {/* Futuristic Glitchy Info Block */}
-        <div className="flex flex-col gap-1 items-start">
-          <GlitchyBlob
-            width={10}
-            height={3}
-            density={0.7}
-            colorClass="text-accent"
-          />
-          <p className="text-xs">[SYS: ONLINE] // NODE: HOME</p>
-          <p className="text-xs">ID: 0xD13G0-0999</p>
-          <p className="text-xs">SECTOR: ∑-ALPHA</p>
-          <p className="text-xs">ACCESS: #ROOT</p>
-        </div>
-        <div className="text-4xl font-bold mt-2 bebas-neue-regular uppercase">
-          <GlitchText className="min-h-[5rem]" text="Full Stack Developer" />
-        </div>
-        <ContactDrawer>
-          <Button variant="outline" className="mt-4 text-xs uppercase">
-            Contact →
-          </Button>
-        </ContactDrawer>
-      </div>
-
       {/* Project Details */}
-      <div className="absolute bottom-8 right-8 text-xs uppercase text-foreground">
-        <div className="grid grid-cols-3 gap-12">
+      <div className="flex flex-col md:block gap-8 w-full md:w-auto md:absolute md:bottom-8 md:right-8 text-xs uppercase text-foreground">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-12">
           <div>
             <p className="mb-2 text-muted-foreground">
               <GlitchText text="// SYS: YEAR" />
@@ -115,8 +90,39 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Folio Number */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 text-accent text-5xl  tracking-tighter">
+      {/* Project Counter & Contact */}
+      <div className="flex flex-col md:block gap-8 w-full pb-8 md:w-auto md:absolute md:bottom-8 md:left-8">
+        {/* Futuristic Glitchy Info Block */}
+        <div className="flex flex-col gap-1 items-start">
+          <GlitchyBlob
+            width={10}
+            height={3}
+            density={0.7}
+            colorClass="text-accent"
+          />
+          <p className="text-xs">[SYS: ONLINE] // NODE: HOME</p>
+          <p className="text-xs">ID: 0xD13G0-1999</p>
+          <p className="text-xs">SECTOR: ∑-ALPHA</p>
+          <p className="text-xs">ACCESS: #ROOT</p>
+          <div className="text-2xl md:text-4xl font-bold mt-2 bebas-neue-regular uppercase">
+            <GlitchText
+              className="min-h-[2.5rem] md:min-h-[5rem]"
+              text="Full Stack Developer"
+            />
+          </div>
+          <ContactDrawer>
+            <Button
+              variant="outline"
+              className="mt-4 text-xs uppercase w-32 sm:w-auto"
+            >
+              Contact →
+            </Button>
+          </ContactDrawer>
+        </div>
+      </div>
+
+      {/* Folio Number (still fixed) */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 text-accent text-3xl md:text-5xl tracking-tighter">
         <GlitchText text="FOLIO" />
         <br />
         <GlitchText text="/2025" />

@@ -25,7 +25,7 @@ export default function Header() {
       </Link>
 
       {/* Navigation */}
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-0 md:gap-6">
         <Button variant="ghost" className=" text-xs ">
           PROJECTS [↗]
         </Button>

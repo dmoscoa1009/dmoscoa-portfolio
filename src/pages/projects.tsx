@@ -16,7 +16,7 @@ export default function ProjectsPage() {
         className="absolute bottom-5 right-5 z-0 opacity-60"
       />
       {/* Top Techy Icon Row */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 flex gap-4 z-10">
+      <div className="md:flex hidden absolute top-32 lg:top-8 left-1/2 -translate-x-1/2 gap-4 z-10">
         {TECH_ICONS.map((icon, i) => (
           <span key={i} className="text-2xl text-foreground">
             {icon}
@@ -24,7 +24,7 @@ export default function ProjectsPage() {
         ))}
       </div>
       {/* Techy Header */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 mt-4 text-xs tracking-widest z-10 select-none">
+      <div className="absolute top-24 lg:top-0 left-1/2 -translate-x-1/2 mt-4 text-xs tracking-widest z-10 select-none">
         [SYS/PROJECTS] :: DEV MODE // SELECT AN ENTRY
       </div>
       <div className="w-full max-w-2xl flex flex-col items-start justify-center gap-2 mt-12">

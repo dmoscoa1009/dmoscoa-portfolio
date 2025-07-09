@@ -8,6 +8,7 @@ import ContactPage from "./pages/contact";
 import Layout from "./components/layout";
 import NotFound from "./pages/not-found";
 import ProjectPage from "./pages/project";
+import "./App.css";
 
 export default function App() {
   const location = useLocation();
