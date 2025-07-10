@@ -1,22 +1,18 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-function Segment({ active, width }: { active: boolean; width: number }) {
+function Segment({ active }: { active: boolean }) {
   return (
     <motion.div
       className={`bg-accent transition-all duration-200 h-2 mx-0.5`}
       initial={false}
       animate={{
-        width: active ? "1.5rem" : width,
-        opacity: active ? 1 : 0.7,
+        width: active ? "1.5rem" : "0.20rem",
       }}
       transition={{
-        duration: 0.3,
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
+        duration: 0.1,
+        ease: "easeInOut",
       }}
-      style={{ minWidth: 4 }}
     />
   );
 }
@@ -41,11 +37,11 @@ export default function StructureBar({
         {left}
       </span>
       <div className="flex-1 flex items-center justify-around mx-4">
-        <Segment active={activeIdx === 0} width={0.25} />
-        <Segment active={activeIdx === 1} width={0.25} />
-        <Segment active={activeIdx === 2} width={0.5} />
-        <Segment active={activeIdx === 3} width={0.25} />
-        <Segment active={activeIdx === 4} width={0.25} />
+        <Segment active={activeIdx === 0} />
+        <Segment active={activeIdx === 1} />
+        <Segment active={activeIdx === 2} />
+        <Segment active={activeIdx === 3} />
+        <Segment active={activeIdx === 4} />
       </div>
       <span className="text-xs tracking-widest text-accent opacity-80">
         {right}

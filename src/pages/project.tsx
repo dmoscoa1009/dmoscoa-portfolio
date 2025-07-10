@@ -1,75 +1,23 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import GlitchText from "@/components/custom/glitch-text";
 import { Marquee } from "@/components/magicui/marquee";
+import StructureBar from "@/components/custom/structure-bar";
 
 export default function ProjectPage() {
   const { projectId } = useParams<{ projectId: string }>();
-  const navigate = useNavigate();
   const project = projects.find((p) => p.id === projectId);
 
   if (!project) return null;
 
   return (
     <>
-      {/* Previous and Next Project Buttons */}
-      {projects.length > 1 && (
-        <>
-          {/* Previous */}
-          <Button
-            className="hidden md:block fixed left-8 top-1/2 -translate-y-1/2 z-50"
-            variant="outline"
-            onClick={() => {
-              const currentIdx = projects.findIndex((p) => p.id === project.id);
-              const prevIdx =
-                (currentIdx - 1 + projects.length) % projects.length;
-              navigate(projects[prevIdx].link);
-            }}
-          >
-            ← Previous
-          </Button>
-          {/* Next */}
-          <Button
-            className="hidden md:block fixed right-8 top-1/2 -translate-y-1/2 z-50"
-            variant="outline"
-            onClick={() => {
-              const currentIdx = projects.findIndex((p) => p.id === project.id);
-              const nextIdx = (currentIdx + 1) % projects.length;
-              navigate(projects[nextIdx].link);
-            }}
-          >
-            Next →
-          </Button>
-          <Button
-            className="fixed left-8 top-24 z-50 md:hidden"
-            variant="outline"
-            onClick={() => {
-              const currentIdx = projects.findIndex((p) => p.id === project.id);
-              const prevIdx =
-                (currentIdx - 1 + projects.length) % projects.length;
-              navigate(projects[prevIdx].link);
-            }}
-          >
-            ←
-          </Button>
-          {/* Next */}
-          <Button
-            className="fixed right-8 top-24 z-50 md:hidden"
-            variant="outline"
-            onClick={() => {
-              const currentIdx = projects.findIndex((p) => p.id === project.id);
-              const nextIdx = (currentIdx + 1) % projects.length;
-              navigate(projects[nextIdx].link);
-            }}
-          >
-            →
-          </Button>
-        </>
-      )}
-
+      <div className="absolute top-20 right-6 max-w-md">
+        <StructureBar left={project.name} right={`00x${project.id}`} />
+      </div>
       {/* Overview - Big, bold, scattered info */}
-      <section className="relative w-full h-[80vh] flex flex-col justify-center items-center px-2 sm:px-8 pt-24">
+      <section className="relative w-full h-[60vh] sm:h-[80vh] flex flex-col justify-center items-center px-2 sm:px-8 pt-24">
         {/* Scattered Info - mobile: stacked, desktop: absolute */}
         <div className="flex flex-col gap-1 w-full text-xs text-foreground/60 mt-2 sm:hidden">
           <div className="flex flex-row gap-1 justify-between">
@@ -152,28 +100,8 @@ export default function ProjectPage() {
       {/* Gallery Section with Marquee */}
       {project.galleryImages && project.galleryImages.length > 0 && (
         <section className="w-full flex flex-col items-center justify-center py-8 sm:py-16">
-          <div className="w-full max-w-7xl mb-6 flex flex-row flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-base">
-            {/* Techy header with icons, terms, and / GALLERY in one row, mobile friendly */}
-            <span className="text-base sm:text-xl">×</span>
-            <span className="text-base sm:text-xl">◻</span>
-            <span className="text-base sm:text-xl">✖</span>
-            <span className="text-base sm:text-xl">◉</span>
-            <span className="text-base sm:text-xl">◼</span>
-            <span className="text-[10px] sm:text-xs text-foreground/60 tracking-widest mx-1 sm:mx-2">
-              [ SYS/IMG_STREAM ]
-            </span>
-            <GlitchText
-              text="/ GALLERY"
-              className="text-base sm:text-lg md:text-2xl tracking-widest"
-            />
-            <span className="text-[10px] sm:text-xs text-foreground/40 tracking-widest mx-1 sm:mx-2">
-              [ DATA FEED // LIVE ]
-            </span>
-            <span className="text-base sm:text-xl">●</span>
-            <span className="text-base sm:text-xl">×</span>
-            <span className="text-base sm:text-xl">◻</span>
-            <span className="text-base sm:text-xl">✖</span>
-            <span className="text-base sm:text-xl">◉</span>
+          <div className="w-full max-w-7xl mb-6 flex items-center justify-center">
+            <StructureBar left="SYS/IMG_STREAM" right="DATA FEED // LIVE" />
           </div>
           {/* Marquee */}
           <div className="relative w-full overflow-hidden">
