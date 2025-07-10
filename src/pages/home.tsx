@@ -1,20 +1,46 @@
 import { Button } from "@/components/ui/button";
 import ContactDrawer from "@/components/custom/contact-drawer";
 import GlitchText from "@/components/custom/glitch-text";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import StructureBar from "@/components/custom/structure-bar";
 
 export default function HomePage() {
+  const [displayText, setDisplayText] = useState("DMOSCOA");
+
+  useEffect(() => {
+    const texts = [
+      "DIEGOMOSCOA",
+      "DEV",
+      "DMOSCOA",
+      "CREATOR",
+      "DIEGOMOSCOA",
+      "BUILDER",
+      "DMOSCOA",
+      "ENGINEER",
+    ];
+
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % texts.length;
+      setDisplayText(texts[currentIndex]);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative h-svh w-full p-4 md:p-8 pt-20 md:pt-32 text-foreground">
+      <div className="sm:absolute top-32 sm:left-1/2 sm:-translate-x-1/2 max-w-2xl w-full z-10 flex flex-col gap-4">
+        <StructureBar left="NODE" right="PACKET" />
+      </div>
       {/* Description */}
       <div className="flex flex-col gap-y-4 mx-2 md:mx-24">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
           <GlitchText
-            text="DMOSCOA"
+            text={displayText}
             className="text-4xl sm:text-6xl bebas-neue-regular font-bold tracking-wider"
           />
-          <StructureBar left="NODE" right="PACKET" />
         </div>
         <div className="max-w-full md:max-w-md mt-2">
           <p className="text-xs font-mono tracking-wider mb-4 text-muted-foreground">
