@@ -32,7 +32,7 @@ export default function ProjectPage() {
 
         {/* Big Project Name */}
         <div className="relative w-full flex flex-col items-center justify-center select-none">
-          <h1 className="text-[20vw] leading-none font-light tracking-tight bebas-neue-regular text-foreground/90 text-center z-10">
+          <h1 className="text-[20vw] leading-none font-light tracking-tight bebas-neue-regular text-foreground/90 text-center z-10 whitespace-nowrap">
             <GlitchText text={project.name.toUpperCase()} />
           </h1>
 
