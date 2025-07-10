@@ -129,12 +129,14 @@ export default function ProjectPage() {
         </section>
       )}
 
-      <Button
-        className="fixed bottom-0 right-0 text-lg px-8 py-6"
-        onClick={() => window.open(project.externalLink, "_blank")}
-      >
-        <GlitchText text="visit [↗]" />
-      </Button>
+      {project.externalLink && (
+        <Button
+          className="fixed bottom-0 right-0 text-lg px-8 py-6 z-50"
+          onClick={() => window.open(project.externalLink, "_blank")}
+        >
+          <GlitchText text="visit [↗]" />
+        </Button>
+      )}
     </>
   );
 }
