@@ -1,5 +1,5 @@
 import GlitchText from "@/components/custom/glitch-text";
-import GlitchyBlob from "@/components/custom/glitchy-blob";
+import StructureBar from "@/components/custom/structure-bar";
 import { NavLink } from "react-router";
 import { projects } from "@/data/projects";
 import InfiniteScrollLoop from "@/components/custom/infinite-scroll-loop";
@@ -10,13 +10,9 @@ const TECH_ICONS = ["×", "◻", "✖", "◉", "◼", "●", "×", "◻", "✖",
 export default function ProjectsPage() {
   return (
     <div className="pt-32 relative h-svh w-full flex flex-col items-center justify-center bg-background">
-      <GlitchyBlob
-        width={8}
-        height={3}
-        density={0.7}
-        colorClass="text-accent"
-        className="absolute bottom-5 right-5 z-0 opacity-60"
-      />
+      <div className="absolute bottom-5 right-5 z-0 opacity-60">
+        <StructureBar left="PROJECTS" right="ACTIVE" />
+      </div>
       {/* Top Techy Icon Row */}
       <div className="lg:flex hidden absolute top-32 lg:top-8 left-1/2 -translate-x-1/2 gap-4 z-10">
         {TECH_ICONS.map((icon, i) => (

@@ -1,18 +1,14 @@
 import GlitchText from "@/components/custom/glitch-text";
-import GlitchyBlob from "@/components/custom/glitchy-blob";
+import StructureBar from "@/components/custom/structure-bar";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router";
 
 export default function CodeShowcasePage() {
   return (
     <div className="relative h-svh w-full flex flex-col items-center justify-center p-8">
-      <GlitchyBlob
-        width={8}
-        height={3}
-        density={0.7}
-        colorClass="text-accent"
-        className="absolute bottom-8 right-8 z-0 opacity-60"
-      />
+      <div className="absolute bottom-8 right-8 z-0 opacity-60">
+        <StructureBar left="CODE" right="SHOWCASE" />
+      </div>
       <div className="flex flex-col items-center gap-8 z-10">
         <GlitchText
           text="Want to see my code?"

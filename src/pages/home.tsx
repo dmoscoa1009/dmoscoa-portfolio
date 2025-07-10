@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import ContactDrawer from "@/components/custom/contact-drawer";
 import GlitchText from "@/components/custom/glitch-text";
 import { NavLink } from "react-router";
-import GlitchyBlob from "@/components/custom/glitchy-blob";
+import StructureBar from "@/components/custom/structure-bar";
 
 export default function HomePage() {
   return (
@@ -14,12 +14,7 @@ export default function HomePage() {
             text="DMOSCOA"
             className="text-4xl sm:text-6xl bebas-neue-regular font-bold tracking-wider"
           />
-          <GlitchyBlob
-            width={6}
-            height={2}
-            density={0.8}
-            colorClass="text-accent"
-          />
+          <StructureBar left="NODE" right="PACKET" />
         </div>
         <div className="max-w-full md:max-w-md mt-2">
           <p className="text-xs font-mono tracking-wider mb-4 text-muted-foreground">
@@ -92,14 +87,9 @@ export default function HomePage() {
 
       {/* Project Counter & Contact */}
       <div className="flex flex-col md:block items-end gap-8 w-full pb-8 md:w-auto md:absolute md:bottom-8 md:left-8 pt-8">
-        {/* Futuristic Glitchy Info Block */}
+        {/* Futuristic Info Block */}
         <div className="flex flex-col gap-1 md:items-start items-end">
-          <GlitchyBlob
-            width={10}
-            height={3}
-            density={0.7}
-            colorClass="text-accent"
-          />
+          <StructureBar left="SYS" right="ONLINE" duration={5000} />
           <p className="text-xs">[SYS: ONLINE] // NODE: HOME</p>
           <p className="text-xs">ID: 0xD13G0-1999</p>
           <p className="text-xs">SECTOR: ∑-ALPHA</p>
