@@ -6,16 +6,13 @@ import { Button } from "@/components/ui/button";
 
 export default function ProjectsPage() {
   return (
-    <div className="pb-0 sm:py-20 relative h-svh w-full justify-center flex flex-col gap-8 sm:items-center">
+    <div className="pt-24 pb-8 px-6 relative min-h-svh w-full justify-between flex flex-col gap-4 items-center">
       {/* Top Techy Icon Row */}
-      <div className="sm:absolute top-4 sm:left-1/2 sm:-translate-x-1/2 z-10 flex flex-col items-center gap-4">
-        <StructureBar left="SYS: PROJECTS" right="NODE: ACTIVE" />
-        <div className="text-xs tracking-widest select-none">
-          [SYS/PROJECTS] :: DEV MODE // SELECT AN ENTRY
-        </div>
+      <div className="max-w-[80vw]">
+        <StructureBar left="// SELECT AN ENTRY" right="LIST" />
       </div>
       {/* Main Projects Section */}
-      <div className="w-full px-4 max-w-2xl flex flex-col items-start justify-center gap-2 flex-shrink-0 mx-auto sm:flex-1 sm:justify-center">
+      <div className="w-full max-w-2xl flex flex-col items-start justify-center gap-2">
         {projects.map((project, idx) => (
           <NavLink
             key={project.id + "-" + idx}
@@ -52,7 +49,7 @@ export default function ProjectsPage() {
         ))}
       </div>
       {/* Techy Footer */}
-      <div className="sm:absolute flex flex-col gap-4 bottom-4 sm:left-1/2 sm:-translate-x-1/2 text-xs tracking-widest z-10 select-none mx-auto">
+      <div className="flex flex-col gap-4 text-xs tracking-widest select-none">
         {/* Extra Techy Section - replaced with single link */}
         <div className="mx-auto w-full max-w-2xl flex flex-col items-center justify-end gap-6 px-4 mt-auto flex-grow">
           <NavLink to="/code" className="mt-8">
@@ -65,7 +62,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Bottom Structure Bar */}
-      <div className="absolute bottom-5 right-5 z-0 opacity-60">
+      <div className="absolute bottom-0 right-6 z-0 opacity-80">
         <StructureBar left="PROJECTS" right="ACTIVE" duration={10000} />
       </div>
     </div>
