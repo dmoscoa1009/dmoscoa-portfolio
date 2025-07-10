@@ -9,7 +9,7 @@ const savedTheme = localStorage.theme;
 const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
 // Remove all theme classes first
-document.documentElement.classList.remove("dark", "light-alt", "dark-alt");
+document.documentElement.classList.remove("dark", "neutral", "dark-alt");
 
 if (savedTheme) {
   // Apply saved theme (except light which is default)

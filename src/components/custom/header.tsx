@@ -11,13 +11,13 @@ export default function Header() {
 
   const cycleTheme = () => {
     const html = document.documentElement;
-    const themes = ["light", "dark", "light-alt"];
+    const themes = ["light", "dark", "neutral"];
     const currentIndex = themes.indexOf(currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     const nextTheme = themes[nextIndex];
 
     // Remove all theme classes
-    html.classList.remove("dark", "light-alt", "dark-alt");
+    html.classList.remove("dark", "neutral", "dark-alt");
 
     // Add the next theme class (except for light which is default)
     if (nextTheme !== "light") {
@@ -97,10 +97,10 @@ export default function Header() {
             }`}
           />
 
-          {/* Light-alt theme icon - Cone */}
+          {/* neutral theme icon - Cone */}
           <Cone
             className={`h-4 w-4 absolute transition-all duration-300 ${
-              currentTheme === "light-alt"
+              currentTheme === "neutral"
                 ? "rotate-0 scale-100 opacity-100"
                 : "rotate-90 scale-0 opacity-0"
             }`}

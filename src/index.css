@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-@custom-variant light-alt (&:is(.light-alt *));
+@custom-variant neutral (&:is(.neutral *));
 
 :root {
   font-family: "Space Mono", sans-serif;
@@ -87,7 +87,7 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
-.light-alt {
+.neutral {
   --background: #4b4e53;
   --background-secondary: #ffffff;
   --foreground: #1d1e27;
@@ -223,7 +223,7 @@
     --radius: 0.5rem;
   }
 
-  .light-alt {
+  .neutral {
     --background: 0 0% 87%;
     --foreground: 0 0% 6%;
 

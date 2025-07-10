@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         </div>
       </div>
       {/* Main Projects Section */}
-      <div className="w-full max-w-2xl flex flex-col items-start justify-center gap-2 flex-shrink-0 mx-auto sm:flex-1 sm:justify-center">
+      <div className="w-full px-4 max-w-2xl flex flex-col items-start justify-center gap-2 flex-shrink-0 mx-auto sm:flex-1 sm:justify-center">
         {projects.map((project, idx) => (
           <NavLink
             key={project.id + "-" + idx}
