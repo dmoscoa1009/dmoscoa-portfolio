@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import GlitchText from "@/components/custom/glitch-text";
 import { Marquee } from "@/components/magicui/marquee";
 import StructureBar from "@/components/custom/structure-bar";
+import { ChevronDown } from "lucide-react";
 
 export default function ProjectPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -62,6 +63,14 @@ export default function ProjectPage() {
               <GlitchText text={project.features[2] || ""} />
             </div>
           </div>
+        </div>
+
+        {/* Scroll Down Text */}
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-4 text-primary dark:text-accent neutral:text-accent flex flex-col items-center z-30 sm:hidden">
+          <span className="text-xs tracking-widest animate-bounce select-none">
+            SCROLL DOWN
+          </span>
+          <ChevronDown className="mt-1 animate-bounce w-4 h-4" />
         </div>
       </section>
 
