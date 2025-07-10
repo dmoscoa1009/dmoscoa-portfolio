@@ -30,7 +30,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative h-svh w-full p-4 sm:p-8 pt-24 pb-12 sm:pt-32 flex flex-col gap-y-4 text-foreground">
+    <div className="relative h-svh w-full p-4 sm:p-8 pt-24 sm:pt-32 flex flex-col gap-y-4 text-foreground">
       <div className="sm:absolute top-32 sm:left-1/2 sm:-translate-x-1/2 sm:max-w-2xl ml-auto mr-6 max-w-[30vw] w-full z-10 flex flex-col gap-4">
         <StructureBar left="NODE" right="PACKET" />
       </div>
@@ -131,7 +131,7 @@ export default function HomePage() {
       </div>
 
       {/* Folio Number */}
-      <div className="fixed right-4 bottom-12 sm:bottom-0 -z-10 sm:top-1/2 sm:-translate-y-1/2 text-accent text-3xl sm:text-5xl tracking-tighter">
+      <div className="fixed right-4 bottom-4 sm:bottom-0 -z-10 sm:top-1/2 sm:-translate-y-1/2 text-accent text-3xl sm:text-5xl tracking-tighter">
         <GlitchText text="FOLIO" />
         <br />
         <GlitchText text="/2025" />
