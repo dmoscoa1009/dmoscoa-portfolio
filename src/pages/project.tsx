@@ -17,7 +17,7 @@ export default function ProjectPage() {
         <StructureBar left={project.name} right={`00x${project.id}`} />
       </div>
       {/* Overview - Big, bold, scattered info */}
-      <section className="relative w-full h-[100vh] sm:h-[80vh] flex flex-col justify-center items-center px-6 sm:px-8 pt-24">
+      <section className="relative w-full h-svh sm:h-[80vh] flex flex-col justify-center items-center px-6 pt-24">
         {/* Scattered Info - mobile: stacked, desktop: absolute */}
         <div className="flex flex-col gap-1 w-full text-xs text-foreground/60 mt-2 sm:hidden">
           <div className="flex flex-row gap-1 justify-between">
