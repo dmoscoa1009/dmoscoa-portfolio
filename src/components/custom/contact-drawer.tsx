@@ -21,7 +21,7 @@ export default function ContactDrawer({ children }: ContactDrawerProps) {
       <DrawerTrigger asChild>
         {children || <Button variant="outline">Contact Me</Button>}
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="max-h-svh overflow-y-auto">
         <div className="mx-auto w-full max-w-2xl">
           <DrawerHeader>
             <DrawerTitle>Let's Work Together</DrawerTitle>
