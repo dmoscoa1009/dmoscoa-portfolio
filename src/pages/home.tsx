@@ -30,8 +30,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative h-svh w-full p-4 sm:p-8 pt-18 pb-12 sm:pt-32 flex flex-col gap-y-4 text-foreground">
-      <div className="sm:absolute top-32 sm:left-1/2 sm:-translate-x-1/2 max-w-2xl w-full z-10 flex flex-col gap-4">
+    <div className="relative h-svh w-full p-4 sm:p-8 pt-24 pb-12 sm:pt-32 flex flex-col gap-y-4 text-foreground">
+      <div className="sm:absolute top-32 sm:left-1/2 sm:-translate-x-1/2 sm:max-w-2xl ml-auto mr-6 max-w-[30vw] w-full z-10 flex flex-col gap-4">
         <StructureBar left="NODE" right="PACKET" />
       </div>
       {/* Description */}
@@ -58,7 +58,7 @@ export default function HomePage() {
       </div>
 
       {/* Centered Project Button */}
-      <div className="sm:absolute sm:top-1/2 my-auto sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 flex justify-center">
+      <div className="sm:absolute items-center sm:top-1/2 my-auto sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 flex justify-center">
         <NavLink to="/projects">
           <Button className="text-base px-6 py-3 rounded-none border-none shadow-none transition-none w-48 sm:w-auto">
             See projects
@@ -67,9 +67,9 @@ export default function HomePage() {
       </div>
 
       {/* Project Details */}
-      <div className="flex flex-col sm:block gap-8 w-full sm:w-auto sm:absolute sm:bottom-8 sm:right-8 text-xs uppercase text-foreground">
-        <div className="grid grid-cols-3 gap-4 sm:gap-12">
-          <div className="sm:text-right text-left">
+      <div className="hidden sm:block sm:absolute sm:bottom-8 sm:right-8 text-xs uppercase text-foreground">
+        <div className="grid grid-cols-3 gap-12">
+          <div className="text-right">
             <p className="mb-2 text-muted-foreground">
               <GlitchText text="// SYS: YEAR" />
             </p>
@@ -77,7 +77,7 @@ export default function HomePage() {
               <GlitchText text="0x2025" />
             </p>
           </div>
-          <div className="sm:text-right text-center">
+          <div className="text-right">
             <p className="mb-2 text-muted-foreground">
               <GlitchText text="// NODE: ROLE" />
             </p>
