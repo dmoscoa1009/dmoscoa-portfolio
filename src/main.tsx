@@ -5,14 +5,25 @@ import App from "./App.tsx";
 import "./index.css";
 
 // Initialize theme based on user preference
-if (
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-  document.documentElement.classList.add("dark");
+const savedTheme = localStorage.theme;
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+// Remove all theme classes first
+document.documentElement.classList.remove("dark", "light-alt", "dark-alt");
+
+if (savedTheme) {
+  // Apply saved theme (except light which is default)
+  if (savedTheme !== "light") {
+    document.documentElement.classList.add(savedTheme);
+  }
 } else {
-  document.documentElement.classList.remove("dark");
+  // Default to dark if user prefers dark mode
+  if (prefersDark) {
+    document.documentElement.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    localStorage.theme = "light";
+  }
 }
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

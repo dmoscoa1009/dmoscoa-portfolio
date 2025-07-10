@@ -5,13 +5,13 @@ import { NavLink } from "react-router";
 
 export default function CodeShowcasePage() {
   return (
-    <div className="relative h-svh w-full flex flex-col items-center justify-center bg-background p-8">
+    <div className="relative h-svh w-full flex flex-col items-center justify-center p-8">
       <GlitchyBlob
         width={8}
         height={3}
         density={0.7}
         colorClass="text-accent"
-        className="absolute top-8 right-8 z-0 opacity-60"
+        className="absolute bottom-8 right-8 z-0 opacity-60"
       />
       <div className="flex flex-col items-center gap-8 z-10">
         <GlitchText
