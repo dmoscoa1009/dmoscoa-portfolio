@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import BinaryBackground from "./binary-background";
 
 interface InitializerProps {
   onComplete: () => void;
@@ -49,11 +50,12 @@ export default function Initializer({ onComplete }: InitializerProps) {
 
   return (
     <AnimatePresence>
+      <BinaryBackground />
       {row <= commands.length && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.2 } }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+          className="fixed inset-0 z-50 px-8 flex items-center justify-center"
         >
           <div className="w-96 text-sm text-foreground space-y-2">
             {/* command lines */}
