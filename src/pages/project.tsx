@@ -109,7 +109,7 @@ export default function ProjectPage() {
       {/* Gallery Section with Marquee */}
       {project.galleryImages && project.galleryImages.length > 0 && (
         <section className="w-full flex flex-col items-center justify-center py-8 sm:py-16">
-          <div className="w-full max-w-7xl mb-6 flex items-center justify-center">
+          <div className="w-full max-w-7xl mb-6 flex items-center justify-center px-4">
             <StructureBar left="SYS/IMG_STREAM" right="DATA FEED // LIVE" />
           </div>
           {/* Marquee */}
