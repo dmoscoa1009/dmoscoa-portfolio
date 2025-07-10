@@ -30,33 +30,26 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative h-svh w-full p-4 md:p-8 pt-20 md:pt-32 text-foreground">
+    <div className="relative h-svh w-full p-4 sm:p-8 pt-18 pb-12 sm:pt-32 flex flex-col gap-y-4 text-foreground">
       <div className="sm:absolute top-32 sm:left-1/2 sm:-translate-x-1/2 max-w-2xl w-full z-10 flex flex-col gap-4">
         <StructureBar left="NODE" right="PACKET" />
       </div>
       {/* Description */}
-      <div className="flex flex-col gap-y-4 mx-2 md:mx-24">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
-          <GlitchText
-            text={displayText}
-            className="text-4xl sm:text-6xl bebas-neue-regular font-bold tracking-wider"
-          />
-        </div>
-        <div className="max-w-full md:max-w-md mt-2">
-          <p className="text-xs font-mono tracking-wider mb-4 text-muted-foreground">
+      <div className="flex flex-col mx-2 gap-y-2 sm:mx-24 items-center sm:items-start">
+        <GlitchText
+          text={displayText}
+          className="text-7xl sm:text-6xl bebas-neue-regular font-bold tracking-wider"
+        />
+        <div className="max-w-full sm:max-w-md text-center sm:text-left">
+          <p className="text-xs font-mono tracking-wider text-muted-foreground">
             <GlitchText
               className="break-words"
-              text="[ID: 0xD13G0] // SYS: CODE-SLINGER ∑ TEAM-LEAD // NODE: DIGITAL BUILDER"
+              text="[ID: 0xD13G0] // SYS: CODE-SLINGER ∑ TEAM-LEAD"
             />
             <br />
             <GlitchText
               className="break-words"
-              text="BLENDING REACT, TYPESCRIPT, + PURE HUSTLE TO CRAFT SCALABLE, USER-OBSESSED APPS."
-            />
-            <br />
-            <GlitchText
-              className="break-words"
-              text="CLEAN DESIGN SYSTEMS // REAL-TIME APIS // FAST-LOADING INTERFACES — LEADING DEV TEAMS."
+              text="BLENDING REACT, TYPESCRIPT, + PURE HUSTLE TO CRAFT SCALABLE APPS."
             />
             <br />
             <GlitchText text="[SYS: SHIPS EXPERIENCES]" />
@@ -65,7 +58,7 @@ export default function HomePage() {
       </div>
 
       {/* Centered Project Button */}
-      <div className="md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 flex justify-center my-8 md:my-0">
+      <div className="sm:absolute sm:top-1/2 my-auto sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 flex justify-center">
         <NavLink to="/projects">
           <Button className="text-base px-6 py-3 rounded-none border-none shadow-none transition-none w-48 sm:w-auto">
             See projects
@@ -74,9 +67,9 @@ export default function HomePage() {
       </div>
 
       {/* Project Details */}
-      <div className="flex flex-col md:block gap-8 w-full md:w-auto md:absolute md:bottom-8 md:right-8 text-xs uppercase text-foreground">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-12">
-          <div>
+      <div className="flex flex-col sm:block gap-8 w-full sm:w-auto sm:absolute sm:bottom-8 sm:right-8 text-xs uppercase text-foreground">
+        <div className="grid grid-cols-3 gap-4 sm:gap-12">
+          <div className="sm:text-right text-left">
             <p className="mb-2 text-muted-foreground">
               <GlitchText text="// SYS: YEAR" />
             </p>
@@ -84,7 +77,7 @@ export default function HomePage() {
               <GlitchText text="0x2025" />
             </p>
           </div>
-          <div>
+          <div className="sm:text-right text-center">
             <p className="mb-2 text-muted-foreground">
               <GlitchText text="// NODE: ROLE" />
             </p>
@@ -96,7 +89,7 @@ export default function HomePage() {
               <GlitchText text="/ ∑-SIGMA" />
             </p>
           </div>
-          <div>
+          <div className="text-right">
             <p className="mb-2 text-muted-foreground">
               <GlitchText text="// TECH" />
             </p>
@@ -105,24 +98,24 @@ export default function HomePage() {
               <br />
               <GlitchText text="TYPESCRIPT" />
               <br />
-              <GlitchText text="#AI + ∞" />
+              <GlitchText text="NESTJS / .NET" />
             </p>
           </div>
         </div>
       </div>
 
       {/* Project Counter & Contact */}
-      <div className="flex flex-col md:block items-end gap-8 w-full pb-8 md:w-auto md:absolute md:bottom-8 md:left-8 pt-8">
+      <div className="flex flex-col sm:block items-center sm:items-start gap-8 w-full sm:w-auto sm:absolute sm:bottom-8 sm:left-8">
         {/* Futuristic Info Block */}
-        <div className="flex flex-col gap-1 md:items-start items-end">
+        <div className="flex flex-col gap-1 sm:items-start items-center">
           <StructureBar left="SYS" right="ONLINE" duration={5000} />
-          <p className="text-xs">[SYS: ONLINE] // NODE: HOME</p>
-          <p className="text-xs">ID: 0xD13G0-1999</p>
-          <p className="text-xs">SECTOR: ∑-ALPHA</p>
-          <p className="text-xs">ACCESS: #ROOT</p>
-          <div className="text-2xl md:text-4xl font-bold mt-2 bebas-neue-regular uppercase">
+          <p className="text-xs hidden sm:block">[SYS: ONLINE] // NODE: HOME</p>
+          <p className="text-xs hidden sm:block">ID: 0xD13G0-1999</p>
+          <p className="text-xs hidden sm:block">SECTOR: ∑-ALPHA</p>
+          <p className="text-xs hidden sm:block">ACCESS: #ROOT</p>
+          <div className="text-2xl sm:text-4xl font-bold mt-2 bebas-neue-regular uppercase">
             <GlitchText
-              className="min-h-[2.5rem] md:min-h-[5rem]"
+              className="min-h-[2.5rem] sm:min-h-[5rem]"
               text="Full Stack Developer"
             />
           </div>
@@ -137,8 +130,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Folio Number (still fixed) */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 text-accent text-3xl md:text-5xl tracking-tighter">
+      {/* Folio Number */}
+      <div className="fixed right-4 bottom-12 sm:bottom-0 -z-10 sm:top-1/2 sm:-translate-y-1/2 text-accent text-3xl sm:text-5xl tracking-tighter">
         <GlitchText text="FOLIO" />
         <br />
         <GlitchText text="/2025" />
